@@ -2,6 +2,8 @@
 a simple script for visualising commits for each week of a project
 
 Here is an example:
-<img src="example.png" width="320px">
+<br/>
+<img src="/example.png" width="1000px">
 
-feel free to fork this and make it you own
+
+feel free to fork this and make it your own
