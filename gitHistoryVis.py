@@ -37,16 +37,13 @@ def getNumberOfCommitsForDateRange(start, end, author):
 
 def getNumberOfCommitsForProject(author):
     commitsForProject = []
-    for i in range(len(startOfWeeks)):
-        if i != len(startOfWeeks)-1:
-            shellOutput = getNumberOfCommitsForDateRange(startOfWeeks[i], startOfWeeks[i+1], author)
-            commitsForProject.append(int(shellOutput))
+    for i in [i for i in range(len(startOfWeeks)) if i != len(startOfWeeks)-1]:
+        shellOutput = getNumberOfCommitsForDateRange(startOfWeeks[i], startOfWeeks[i+1], author)
+        commitsForProject.append(int(shellOutput))
     return commitsForProject
 
 developerData = getNumberOfCommitsForProject('Michael McCoubrey')
 teamsData = getNumberOfCommitsForProject(None)
-#plt.bar([i for i in range(len(startOfWeeks)) if i !=1], teamsData)
-#plt.bar([i for i in range(len(startOfWeeks)) if i !=1], developerData)
 plt.bar(startOfWeeks[:-1], teamsData, label='Total commits by group')
 plt.bar(startOfWeeks[:-1], developerData, label='Total commits by me')
 plt.title("Number of commits over time", fontsize=16)
